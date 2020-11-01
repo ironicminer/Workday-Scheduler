@@ -32,11 +32,16 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">9:00</h5>
+          <div class="input-9"></div>
           <input
             class="form-control form-control-sm"
-            type="text"
+            id="inputNine"
+            type="text-area"
             placeholder=""
           />
+          <div class="div">
+            <button id="9">Save</button>
+          </div>
         </div>
       </div>
       <div class="card">
@@ -78,5 +83,25 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script>
+      //get input and store to local storage
+      $(document).ready(function () {
+        //let key = document.querySelector("#inputNine");
+
+        $("button").click(function () {
+          let inputs = $("#inputNine").val();
+          //alert(inputs);
+
+          localStorage.setItem("Key", JSON.stringify(inputs));
+
+          $(".input-9").append(inputs);
+          $("#inputNine").val(" ");
+          //console.log(inputs);
+
+          //$(this).set(localStorage);
+        });
+      });
+      //get from local storage and append time card
+    </script>
   </body>
 </html>
